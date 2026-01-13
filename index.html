@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>முத்தமிழ் வித்தைகள் - இளந்தூது</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@400;700&family=Hind+Madurai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #3d0a0a;
+            --primary-brown: #1a0f0b;
+            --accent-gold: #d4af37;
+            --neon-gold: rgba(212, 175, 55, 0.4);
+        }
+        body {
+            font-family: 'Hind Madurai', 'Arima', sans-serif;
+            background-color: #120806;
+            color: #fdfaf5;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #d4af37;
+            color: #000;
+            padding: 8px;
+            z-index: 1001;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        /* Custom Focus Styles for Keyboard Navigation */
+        :focus-visible {
+            outline: 3px solid #d4af37;
+            outline-offset: 4px;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05); /* Increased opacity for better visibility */
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15); /* Increased border contrast */
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-up {
+            animation: fade-up 1s ease-out forwards;
+        }
+        .depth-card {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .depth-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+        .parallax-bg {
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(139, 0, 0, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(62, 39, 35, 0.25) 0%, transparent 40%),
+                linear-gradient(135deg, #120806 0%, #2a0a0a 45%, #1a0f0b 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
+        /* Increased contrast for accessibility on backgrounds */
+        .parallax-bg::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="parallax-bg">
+    <a href="#main-content" class="skip-link">உள்ளடக்கத்திற்குச் செல்லவும்</a>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
